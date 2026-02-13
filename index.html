@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A romantic love quiz and surprise video page." />
+    <title>A Little Love Surprise 💖</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="hearts" aria-hidden="true" id="heartsLayer"></div>
+
+    <main class="app" aria-live="polite">
+      <section class="card" id="startScreen">
+        <p class="eyebrow">Made with love</p>
+        <h1 id="startTitle">A Little Love Surprise 💖</h1>
+        <p class="intro" id="introText">
+          I made this tiny surprise just for you. Answer a few sweet questions and unwrap the final reveal.
+        </p>
+        <button id="startBtn" class="btn btn-primary" aria-label="Start love quiz">Start</button>
+      </section>
+
+      <section class="card hidden" id="quizScreen" aria-label="Love quiz section">
+        <div class="progress-wrap" aria-label="Quiz progress">
+          <p id="progressText" class="progress-text">1/7</p>
+          <div class="progress-bar" role="progressbar" aria-valuemin="1" aria-valuemax="7" aria-valuenow="1" aria-label="Question progress">
+            <span id="progressFill"></span>
+          </div>
+        </div>
+
+        <form id="quizForm" novalidate>
+          <h2 id="questionTitle"></h2>
+          <p id="questionHint" class="question-hint"></p>
+          <div id="questionInput" class="question-input"></div>
+          <p id="validationMsg" class="validation" role="alert" aria-live="assertive"></p>
+          <div class="actions">
+            <button type="button" id="backBtn" class="btn btn-ghost">Back</button>
+            <button type="submit" id="nextBtn" class="btn btn-primary">Next</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card hidden" id="resultScreen" aria-label="Results screen">
+        <h2 id="resultHeading">For you 💖</h2>
+        <p class="intro" id="resultSummary"></p>
+
+        <div class="love-letter">
+          <h3>Love Letter</h3>
+          <p id="loveLetterText"></p>
+        </div>
+
+        <div class="result-actions">
+          <button id="playSurpriseBtn" class="btn btn-primary">Play Surprise</button>
+          <button id="shareBtn" class="btn btn-ghost">Share</button>
+          <button id="savePageBtn" class="btn btn-ghost">Save this page</button>
+          <button id="restartBtn" class="btn btn-ghost">Start Again</button>
+        </div>
+
+        <section class="video-wrap" id="videoSection" hidden>
+          <h3>Your Surprise Video</h3>
+          <p class="small-note">Tip: Place your own file at <code>assets/kiss.mp4</code> to make it personal.</p>
+          <div id="videoContainer"></div>
+          <div class="video-controls">
+            <button id="muteToggleBtn" class="btn btn-ghost" hidden>Mute/Unmute</button>
+            <button id="replayBtn" class="btn btn-ghost" hidden>Replay</button>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <template id="radioTemplate">
+      <fieldset class="choice-group" id="choiceFieldset">
+        <legend class="sr-only">Pick one option</legend>
+      </fieldset>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
